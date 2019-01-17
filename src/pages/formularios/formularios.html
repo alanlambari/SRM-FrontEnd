@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+   <img src="assets/imgs/logoSRM.png" alt="logo">
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+        <ion-list>
+            <br>
+            <ion-item *ngFor="let item of items">
+              <h2>{{item.nomeCliente}}</h2>
+              <p>Limite de Credito: {{item.limiteCredito}}   ••••   Taxa de Juros: {{item.taxaJuros}}%</p>
+              <button ion-button clear item-end (click)="excluir(item.id)" >Excluir</button>
+            </ion-item>
+          </ion-list>
+          <button style="align-content: center" block ion-button (click)="voltar()">Voltar</button>
+</ion-content>

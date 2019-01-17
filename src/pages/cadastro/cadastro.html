@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+     <img src="assets/imgs/logoSRM.png" alt="logo">
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-title>Cadastro</ion-title><br><br>
+    <form [formGroup]="formGroup" (ngSubmit)="cadastrar(); $event.preventDefault()">
+      <ion-item>
+        <ion-label stacked>Nome do Cliente*</ion-label>
+        <ion-input formControlName="nomeCliente" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls.nomeCliente.dirty && formGroup.controls.nomeCliente.errors" margin-left>Valor inválido</p>
+      
+      <ion-item>
+        <ion-label stacked>Limite de Crédito*</ion-label>
+        <ion-input formControlName="limiteCredito" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls.limiteCredito.dirty && formGroup.controls.limiteCredito.errors" margin-left>Valor inválido</p>
+
+      <ion-item>
+          <ion-label stacked>Risco*</ion-label>
+          <ion-select formControlName="risco">
+            
+            <ion-option value="1">A</ion-option>
+            <ion-option value="2">B</ion-option>
+            <ion-option value="3">C</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <br><br><br>
+      
+        <button ion-button block type="submit" [disabled]="formGroup.invalid">Cadastrar</button>
+        <button  block outline ion-button (click)="voltar()">Voltar</button>
+
+    </form>
+  </ion-content>
